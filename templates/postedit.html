@@ -1,0 +1,147 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="TemplateMo">
+  <link
+    href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <title>Update Post</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/templatemo-stand-blog.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
+  <style>
+    form {
+      margin-top: 200px;
+      width: 50%;
+    }
+
+    h5 {
+      color: rgb(237, 63, 63);
+      font-weight: 500;
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      margin-top: 30px;
+      background: rgb(236, 88, 88);
+      width: 100%;
+      color: #fff;
+      font-size: 20px;
+      padding: 5px;
+    }
+
+    .btn:hover {
+      background: transparent;
+      color: rgb(237, 63, 63);
+      border: 1px solid rgb(237, 63, 63);
+    }
+
+    a {
+      text-decoration: none;
+      color: #386cbb;
+    }
+
+    a:hover {
+      color: rgb(237, 63, 63);
+      letter-spacing: 1px;
+    }
+
+    @media screen and (max-width:600px) {
+      form {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="">
+    <nav class="navbar navbar-expand-lg bg-white">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <h2>BLOG<span style="color: orangered;">SPOT</span></h2>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+          aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li>
+              <a class="nav-link" href="{% url 'index' %}">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'blog' %}">Blogs</a>
+            </li>
+
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'create' %}">Create</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'profile' user.id %}">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'signin' %}">Login</a>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Page Content -->
+
+
+  <div class="container">
+    <div class="d-flex justify-content-center align-items-center " style="height: 100vh;">
+
+      <form action="{% url 'editpost' post.id %}" class="p-5 shadow" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h5 class="mb-5">Update Your Post</h5>
+        <label for="" class="form-label">Title</label>
+        <div class="input-group">
+          <input type="text" class="form-control" name="postname" value="{{post.postname}}" required>
+        </div>
+        <label for="" class="form-label">Content</label>
+        <textarea class="form-control" name="content" required>{{post.content}}</textarea>
+        <label for="" class="form-label">Category</label>
+        <input type="text" class="form-control" name="category" value="{{post.category}}" required>
+        <button class="btn">Update Post</button>
+        <br>
+        {% for message in messages %}
+        <p class="text-danger">{{message}}</p>
+        {% endfor %}
+      </form>
+
+    </div>
+  </div>
+
+  {% include 'footer.html' %}
+
+</body>
+
+</html>

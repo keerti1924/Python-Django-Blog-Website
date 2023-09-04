@@ -1,0 +1,317 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="TemplateMo">
+    <link
+        href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <title>Profile</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/templatemo-stand-blog.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
+
+
+    <style>
+        body {
+            background-color: #f9f9fa;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .padding {
+            padding: 1rem;
+        }
+
+
+        .user-card-full {
+
+            overflow: hidden;
+        }
+
+        .card {
+            border-radius: 5px;
+            -webkit-box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
+            box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
+            border: none;
+            margin-bottom: 30px;
+            padding: 50px;
+        }
+
+        .m-r-0 {
+            margin-right: 0px;
+        }
+
+        .m-l-0 {
+            margin-left: 0px;
+        }
+
+        .user-card-full .user-profile {
+            border-radius: 5px 0 0 5px;
+        }
+
+        .bg-c-lite-green {
+            background: linear-gradient(to top, #4b35d9, #eb31a7);
+            box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
+        }
+
+        .user-profile {
+            padding: 20px 0;
+        }
+
+        .card-block {
+            padding: 1.25rem;
+        }
+
+        .m-b-25 {
+            margin-bottom: 25px;
+        }
+
+        .img-radius {
+            border-radius: 5px;
+        }
+
+
+
+        h6 {
+            font-size: 14px;
+        }
+
+        .card .card-block p {
+            line-height: 25px;
+        }
+
+
+        @media only screen and (min-width: 2400px) {
+            p {
+                font-size: 14px;
+            }
+        }
+
+        .card-block {
+            padding: 1.25rem;
+        }
+
+        .b-b-default {
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .m-b-20 {
+            margin-bottom: 20px;
+        }
+
+        .p-b-5 {
+            padding-bottom: 5px !important;
+        }
+
+        .card .card-block p {
+            line-height: 25px;
+        }
+
+        .m-b-10 {
+            margin-bottom: 10px;
+        }
+
+        .text-muted {
+            color: #919aa3 !important;
+        }
+
+        .b-b-default {
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .f-w-600 {
+            font-weight: 600;
+        }
+
+        .m-b-20 {
+            margin-bottom: 20px;
+        }
+
+        .m-t-40 {
+            margin-top: 20px;
+        }
+
+        .p-b-5 {
+            padding-bottom: 5px !important;
+        }
+
+        .m-b-10 {
+            margin-bottom: 10px;
+        }
+
+        .m-t-40 {
+            margin-top: 20px;
+        }
+
+        .user-card-full .social-link li {
+            display: inline-block;
+        }
+
+        .user-card-full .social-link li a {
+            font-size: 20px;
+            margin: 0 10px 0 0;
+            -webkit-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .card-shadow {
+            /* padding:.5rem; */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        @media screen and (max-width:600px) {
+            .padding {
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="">
+        <nav class="navbar navbar-expand-lg bg-white">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <h2>BLOG<span style="color: orangered;">SPOT</span></h2>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li>
+                            <a class="nav-link" href="{% url 'index' %}">Home
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'blog' %}">Blogs</a>
+                        </li>
+
+                        {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'create' %}">Create</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'profile' user.id %}">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'signin' %}">Login</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <div class="mt-3">
+        <div class="page-content page-container p-lg-5 p-0" id="page-content">
+            <div class="padding">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-xl-12 col-md-12" id="card">
+                        <div class="card user-card-full">
+                            <div class="row m-l-0 m-r-0">
+                                <div class="col-sm-4 bg-c-lite-green user-profile">
+                                    <div class="card-block text-center text-white">
+                                        <div class="m-b-25">
+
+                                            <img src="{% static 'assets/images/user.png' %}" class="img-radius"
+                                                alt="User-Profile-Image" style="border-radius: 50%;">
+
+                                        </div>
+                                        <h6 class="f-w-800 h3" style="text-transform: capitalize;">{{user.username}}
+                                        </h6>
+                                        <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
+                                    </div>
+                                </div>
+                                <div class="col-sm-8">
+                                    <div class="card-block">
+                                        <h6 class="m-b-20 p-b-5 b-b-default f-w-600"
+                                            style="font-size: 30px; padding: 20px;  color: #7461f3;">Profile <a
+                                                href="{% url 'profileedit' user.id %}"
+                                                class="float-right text-decoration-none text-success"
+                                                style="font-size: 15px;">Edit Profile</a>
+                                        </h6>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <p class="m-b-10 f-w-600 text-dark">Firstname :-
+                                                    <span class="text-muted f-w-400">{{user.first_name}}</span>
+                                                </p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p class="m-b-10 f-w-600 text-dark">Lastname :-
+                                                    <span class="text-muted f-w-400">{{user.last_name}}</span>
+                                                </p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p class="m-b-10 f-w-600 text-dark">Email :-
+                                                    <span class="text-muted f-w-400">{{user.email}}</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <p class="small fw-bold pt-3 text-dark">My Posts</p>
+                                        <hr>
+
+                                        <div class="row row-cols-lg-2 row-cols-1">
+                                            {% for post in posts%}
+                                            {% if post.user_id == user.id %}
+                                            <div class="col col-lg-6 col-12 mb-2">
+                                                <img src="{{media_url}}{{post.image}}" alt="" height="300px"
+                                                    width="100%">
+                                                <div class="px-3 py-2 shadow">
+                                                    <h5>{{post.postname}}</h5>
+                                                    <a href="{% url 'deletepost' post.id %}"><button
+                                                            class="ms-2 float-right small" type="submit"
+                                                            style="border:2px solid rgb(252, 63, 42); border-radius: 5px; background-color: rgb(246, 148, 141);">Delete</button></a>
+                                                    <a href="{% url 'editpost' post.id %}"><button
+                                                            class="float-right small" type="submit"
+                                                            style="border:2px solid rgb(64, 108, 251); border-radius: 5px; background-color: rgb(141, 169, 246);">Edit</button></a>
+                                                    <span
+                                                        class="text-white bg-success rounded-3 px-2 rounded-2">{{post.category}}</span>
+                                                    <p>{{post.content|slice:"0:20"}}...</p>
+                                                    <p class="small text-primary">{{post.time}}<span
+                                                            class="text-danger float-right">Likes :
+                                                            {{post.likes}}</span></p>
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'footer.html' %}
+</body>
+
+</html>

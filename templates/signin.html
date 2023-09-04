@@ -1,0 +1,147 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link
+        href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'assets/css/templatemo-stand-blog.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/styles.css' %}">
+
+    <title>Login</title>
+
+    <style>
+        form {
+            width: 50%;
+        }
+
+        h3 {
+            color: rgb(237, 63, 63);
+            font-weight: 500;
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            margin-top: 30px;
+            background: rgb(236, 88, 88);
+            width: 100%;
+            color: #fff;
+            font-size: 20px;
+            padding: 10px;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: rgb(237, 63, 63);
+            border: 1px solid rgb(237, 63, 63);
+        }
+
+        .para {
+            padding: 20px;
+            text-align: center;
+            font-size: 18px;
+            color: #555;
+        }
+
+        a {
+            text-decoration: none;
+            color: #386cbb;
+        }
+
+        a:hover {
+            color: rgb(237, 63, 63);
+            letter-spacing: 1px;
+        }
+
+        @media screen and (max-width:600px) {
+            form {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    {%include 'header.html'%}
+
+    <div class="container">
+        <div class="d-flex justify-content-center align-items-center " style="height: 100vh;">
+
+            <form action="{% url 'signin' %}" method="post" class="p-5 shadow">
+                {% csrf_token %}
+                <h3>LOGIN</h3>
+                <br>
+                {% for message in messages %}
+                <p class="text-danger text-center">{{message}}</p>
+                {% endfor %}
+                <label for="" class="form-label">Username</label>
+                <div class="input-group mt-1">
+                    <span class="input-group-text">@</span>
+                    <input type="text" class="form-control" name="username" required>
+                </div>
+                <label for="" class="form-label mt-3">Password</label>
+                <div class="input-group mt-1">
+                    <input type="password" class="form-control" name="password" required>
+                </div>
+                <button class="btn">Login</button>
+                <p class="para">Don't have an account ?<a href="{% url 'signup' %}"> Sign up</a></p>
+            </form>
+        </div>
+    </div>
+
+    {% include 'footer.html' %}
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
+        crossorigin="anonymous"></script>
+
+    <!-- Additional Scripts -->
+    <script src="{% static 'assets/js/custom.js' %}"></script>
+    <script src="{% static 'assets/js/owl.js' %}"></script>
+    <script src="{% static 'assets/js/slick.js' %}"></script>
+    <script src="{% static 'assets/js/isotope.js' %}"></script>
+    <script src="{% static 'assets/js/accordions.js' %}"></script>
+
+
+    <script language="text/Javascript">
+        cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
+        function clearField(t) {                   //declaring the array outside of the
+            if (!cleared[t.id]) {                      // function makes it static and global
+                cleared[t.id] = 1;  // you could use true and false, but that's more typing
+                t.value = '';         // with more chance of typos
+                t.style.color = '#fff';
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
