@@ -1,0 +1,9 @@
+.carousel img {
+    width: 100%;
+    height: 700px;
+}
+
+.blog-posts .blog-post img,
+.blog-post img {
+    height: 300px;
+}
