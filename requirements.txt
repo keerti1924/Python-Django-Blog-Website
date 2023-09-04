@@ -1,5 +1,5 @@
 asgiref
-Django
+django
 Pillow
 sqlparse
 tzdata
